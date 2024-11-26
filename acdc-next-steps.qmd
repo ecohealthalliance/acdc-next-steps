@@ -59,7 +59,7 @@ Africa CDC transfers the whole SQL database to its own SQL database. This should
 
 # Maintenance and update of the Africa CDC database
 
-Some of the salient points related to this are discussed in point 2 above. In addition, we will need to spend time with those responsible for update and maintenance of the database with regard to the protocols and process of updated particularly with the advent of our new main source which is the Pandemic PACT dataset. Tasks related to this are:
+Some of the salient points related to this are discussed in point 2 above. In addition, we will need to spend time with those responsible for update and maintenance of the database with regard to the protocols and process of updates particularly with the advent of our new main source which is the Pandemic PACT dataset. Tasks related to this are:
 
 1. Update current protocol handbook to reflect the Pandemic PACT protocol and how the fields from this dataset are to be retrieved and matched to the Africa CDC database (Ernest will be working on this).
 
