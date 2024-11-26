@@ -1,0 +1,54 @@
+name: Publish Africa CDC Database next steps
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    container: rocker/tidyverse:4.4.1
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install system dependencies
+        run: |
+          apt-get update && apt-get install -y --no-install-recommends \
+          libxt6 libglpk-dev gh curl jq rsync \
+          imagemagick libmagick++-dev gsfonts libcurl4-openssl-dev \
+          libgdal-dev gdal-bin libgeos-dev libproj-dev libsqlite3-dev \
+          libssl-dev libudunits2-dev libprotobuf-dev protobuf-compiler git-crypt
+
+      - name: Trust repo
+        run: |
+          git config --global --add safe.directory /__w/acdc-db-search/acdc-db-search
+          
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      - name: Install packages from renv.lock (with cache)
+        if: ${{ !env.ACT }}  
+        uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 2
+
+      - name: Install packages from renv.lock (local, no cache)
+        if: ${{ env.ACT }}  
+        run: |
+          renv::restore()
+        shell: Rscript {0}
+        
+      - name: Render document
+        run: |
+          quarto render acdc-next-steps.qmd
+      
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs
+          

@@ -1,0 +1,26 @@
+project:
+  output-dir: docs
+
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    highlight-style: breeze
+    embed-resources: true
+    grid:
+      body-width: 900px
+      margin-width: 300px
+    output-file: index.html
+    code-tools:
+      source: https://github.com/ecohealthalliance/acdc-next-steps/blob/main/acdc-next-steps.qmd
+  pdf:
+    documentclass: scrartcl
+    papersize: a4
+    toc: true
+    toc-title: Contents
+    lof: true
+    lot: true
+    number-sections: true
+    number-depth: 3
+    highlight-style: breeze

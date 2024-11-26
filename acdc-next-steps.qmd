@@ -1,0 +1,67 @@
+---
+title: Africa CDC One Health Database
+subtitle: Next Steps
+author:
+  - name: Ernest Guevarra
+    orcid: 0000-0002-4887-4415
+    email: guevarra@ecohealthalliance.org
+    affiliation: 
+      - name: EcoHealth Alliance
+        city: New York
+date: last-modified
+date-format: "DD MMMM YYYY"
+---
+
+```{r setup}
+#| echo: false
+
+```
+
+# Introduction {#introduction}
+
+This document outlines next steps to plan for in relation to the Africa CDC One Health Database and key decisions that need to be made for moving forward.
+
+# Integration of current database to Africa CDC Knowledge Hub
+
+This task is what the Africa CDC colleagues have been working on since August 2024. Based on what is presented and discussed during the meeting on the 26th of November 2024, we will draw our next steps and tasks. We anticipate that remaining issues to be tackled are:
+
+1. integration of **topics** field in database to the **themes** concept/ontology of the Knowledge Hub.
+
+2. integration of new fields (research category, research sub-category, research priorities, research sub-priorities) from the [Pandemic PACT](https://www.pandemicpact.org) dataset which is the latest comprehensive data source for the Africa CDC database. A discussion on the similarities of the Pandemic PACT dataset to the Africa CDC database can be read [here](https://ecohealthalliance.github.io/acdc-db-search/pandemic_pact_review.html).
+
+
+# Transfer of database ownership from EHA to Africa CDC
+
+Currently, the database is still in an SQL-based database (dolt and DoltHub) that is under EHA's name (account for DoltHub is under EHA but Andrew was made a member and is an administrator with administrator rights).
+
+This should be transferred to Africa CDC as per memorandum of agreement between the two organisations.
+
+Following are the possible pathways of transfer.
+
+## First option: transfer database from EHA DoltHub to Africa CDC DoltHub account
+
+This option was suggested in earlier discussions in August with Andrew and team. This will be as simple as Africa CDC creating a DoltHub account and then EHA transferring ownership of the database to that account. Issues that need to be taken into account are:
+
+1. As per privacy and data protection policies of EHA, this database is a private SQL database in the EHA DoltHub account. Only those with permissions and rights to the database have access. So, when transferring, the receiving project within the Africa CDC account should also be private. A private project/database has cost implications.
+
+2. This approach will maintain current database update mechanisms that uses API to upload updated records to the DoltHub. Transferring to Africa CDC account will just need the use of Africa CDC account API tokens to replace EHA tokens which are currently being used.
+
+3. Manual entry of specific fields that are not obtainable with automation can be entered via DoltHub interface.
+
+## Second option: transfer database from EHA SQL server to Africa CDC SQL server
+
+Africa CDC transfers the whole SQL database to its own SQL database. This should ensure that schema is kept to what has been agreed (current SQL schemas have been provided to Africa CDC). The implications of this are:
+
+1. For the updating of the database, the current workflow will need to be adjusted/changed to interface with the Africa CDC SQL servers instead. This can either be done by Africa CDC themselves or if help needed from EHA, we will need to be given permissions to interface with the Africa CDC SQL server so we can set up these routine uploads.
+
+2. Manual updated of fields that require manual searches and upload will require a mechanism by which this can be done. So, the Africa CDC SQL server should be able to allow such manual update.
+
+
+# Maintenance and update of the Africa CDC database
+
+Some of the salient points related to this are discussed in point 2 above. In addition, we will need to spend time with those responsible for update and maintenance of the datbase with regard to the protocols and process of updated particularly with the advent of our new main source which is the Pandemic PACT dataset. Tasks related to this are:
+
+1. Update current protocol handbook to reflect the Pandemic PACT protocol and how the fields from this dataset are to be retrieved and matched to the Africa CDC database (Ernest will be working on this).
+
+2. Series of meetings and discussions with Africa CDC colleagues in charge of updating and maintenance to operationalise the maintenance workflow.
+
