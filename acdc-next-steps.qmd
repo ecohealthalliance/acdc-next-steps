@@ -54,7 +54,7 @@ Africa CDC transfers the whole SQL database to its own SQL database. This should
 
 1. For the updating of the database, the current workflow will need to be adjusted/changed to interface with the Africa CDC SQL servers instead. This can either be done by Africa CDC themselves or if help needed from EHA, we will need to be given permissions to interface with the Africa CDC SQL server so we can set up these routine uploads.
 
-2. Manual updated of fields that require manual searches and upload will require a mechanism by which this can be done. So, the Africa CDC SQL server should be able to allow such manual update.
+2. Manual update of fields that require manual searches and upload will require a mechanism by which this can be done. So, the Africa CDC SQL server should be able to allow such manual update.
 
 
 # Maintenance and update of the Africa CDC database
